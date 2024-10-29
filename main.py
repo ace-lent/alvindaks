@@ -1,5 +1,4 @@
 from fastapi import FastAPI, Request
-from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
@@ -19,7 +18,7 @@ class Calculation(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return {"Hellow": "Ako budoy"}
 
 @app.post("/calculate")
 async def calculate(calc: Calculation):
